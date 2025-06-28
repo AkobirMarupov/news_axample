@@ -12,7 +12,7 @@ def send_email(subject, intro_text, email, token, template, password=None):
         "intro_text": intro_text,
         "token": token,
         "password": password,
-        "frontend_url": "news.com",
+        "frontend_url": "news_example.com",
     }
     html_content = render_to_string(template, context)
     email = EmailMessage(subject, html_content, to=[to_email])
