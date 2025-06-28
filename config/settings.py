@@ -49,7 +49,11 @@ EXTERNAL_APPS = [
     'rest_framework_simplejwt',
     'drf_yasg',
     'jazzmin',
+    'rosetta',
     'modeltranslation',
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'django_celery_beat',
 
 ]
 
@@ -169,4 +173,13 @@ USE_I18N = True
 USE_L10N = True
 
 LOCALE_PATHS = [BASE_DIR / "locale"]
+
+
+# Celery settengs
+
+CELERY_BROKER_URL = 'redis://localhost:6370/0'
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
