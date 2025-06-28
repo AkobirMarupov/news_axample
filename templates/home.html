@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Welcome" %}</title>
+</head>
+<body>
+
+    <h1>{% trans "Welcome to the news site!" %}</h1>
+    <p>{% trans "Select your language below:" %}</p>
+
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <select name="language">
+            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+            <option value="uz" {% if LANGUAGE_CODE == 'uz' %}selected{% endif %}>O‘zbek</option>
+            <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>Русский</option>
+        </select>
+        <button type="submit">{% trans "Change Language" %}</button>
+    </form>
+
+</body>
+</html>
