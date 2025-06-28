@@ -157,6 +157,22 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
+# email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+TOKEN_EXPIRY_SECONDS = 3600
+
+
+# Frontend ilova URL manzili (emaildagi tasdiqlash havolasi uchun)
+FRONTEND_URL = "https://news_example1.com"
+
+
+
 from django.utils.translation import gettext_lazy as _
 
 LANGUAGE_CODE = "en"  

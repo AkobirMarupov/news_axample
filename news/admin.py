@@ -1,5 +1,5 @@
 from django.contrib import admin
-from news.models import Category, News, MediaFile, Tag
+from news.models import Category, News, MediaFile, Tag, Comment
 
 
 @admin.register(Category)
@@ -35,3 +35,12 @@ class TagAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     filter_horizontal = ('news',)
 
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'news', 'parent', 'created_at')
+    list_filter = ('created_at', 'user', 'news')
+    search_fields = ('content', 'user__email', 'news__title')
+    autocomplete_fields = ['user', 'news', 'parent']
+    readonly_fields = ['created_at']
